@@ -2,7 +2,15 @@ import { useMemo, useState } from 'react';
 import { Menu as IMenu, Close, Chat } from '@mui/icons-material';
 import { Box, List, ListItem, Stack } from '@mui/material';
 
-import { MenuIconContainer, MenuIcon, MenuDrawer, MenuNavText, MenuMessageText, MessageIcon, MessageContainer } from './Menu.style';
+import {
+  MenuIconContainer,
+  MenuIcon,
+  MenuDrawer,
+  MenuNavText,
+  MenuMessageText,
+  MessageIcon,
+  MessageContainer,
+} from './Menu.style';
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
