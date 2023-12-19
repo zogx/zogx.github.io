@@ -1,9 +1,9 @@
+import { Stack } from '@mui/material';
 import { useCallback } from 'react';
 
-import { BodyContainer, BodyDescription, DescriptionWord } from './Body.style';
-import { Stack } from '@mui/material';
+import { BodyContainer, BodyDescription, DescriptionWord } from './Home.style';
 
-const Body = () => {
+const Home = () => {
   const titleTransitionProps = useCallback((index) => ({
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -61,4 +61,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Home;

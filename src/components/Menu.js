@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Menu as IMenu, Close, Chat } from '@mui/icons-material';
 import { Box, List, ListItem, Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 import {
   MenuIconContainer,
@@ -14,12 +15,20 @@ import {
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navTransitionProps = useMemo(() => ({
     initial: { x: -100 },
     animate: { x: 0 },
     transition: { x: { delay: 0.3, type: 'tween' } },
+    variant: 'h2',
+    gutterBottom: true,
   }), []);
+
+  const handleNavigation = useCallback((route) => {
+    navigate(route);
+    setIsOpen(false);
+  }, [navigate]);
 
   return (
     <>
@@ -38,17 +47,17 @@ const Menu = () => {
           <List>
             <ListItem><Box height="25vh" /></ListItem>
             <ListItem>
-              <MenuNavText variant="h2" gutterBottom {...navTransitionProps}>
+              <MenuNavText {...navTransitionProps} onClick={() => handleNavigation('/about')}>
                 About
               </MenuNavText>
             </ListItem>
             <ListItem>
-              <MenuNavText variant="h2" gutterBottom {...navTransitionProps}>
+              <MenuNavText {...navTransitionProps}>
                 Projects
               </MenuNavText>
             </ListItem>
             <ListItem>
-              <MenuNavText variant="h2" gutterBottom {...navTransitionProps}>
+              <MenuNavText {...navTransitionProps}>
                 Contact
               </MenuNavText>
             </ListItem>
