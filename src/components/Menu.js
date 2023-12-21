@@ -57,7 +57,7 @@ const Menu = () => {
               </MenuNavText>
             </ListItem>
             <ListItem>
-              <MenuNavText {...navTransitionProps}>
+              <MenuNavText {...navTransitionProps} onClick={() => handleNavigation('/contact')}>
                 Contact
               </MenuNavText>
             </ListItem>
