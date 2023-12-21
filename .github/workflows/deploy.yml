@@ -13,16 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: npm version patch
-      - name: Version
-        uses: HardNorth/github-version-generate@v1.0.2
-        with:
-          version-source: file
-          version-file: ${{ env.VERSION_FILE }}
-          version-file-extraction-pattern: ${{ env.VERSION_EXTRACT_PATTERN }}
-      - name: Tag
-        run: |
-          git push origin v${{ env.RELEASE_VERSION }}
       - name: Build
         uses: actions/setup-node@v1
         with:
@@ -42,7 +32,6 @@ jobs:
           version-file-extraction-pattern: ${{ env.VERSION_EXTRACT_PATTERN }}
       - name: Move to directory
         run: |
-          git reset HEAD~
           mv package.json build/
           rm -f .eslintcache *.html *.ico *.json *.png *.txt
           rm -rf static/
@@ -52,3 +41,8 @@ jobs:
           git add -- . ':!build' ':!node_modules'
           git commit -m "Release: v${{ env.RELEASE_VERSION }}"
           git push origin gh-pages
+      - name: Tag Main branch
+        run: |
+          git checkout main
+          git tag v${{ env.RELEASE_VERSION }}
+          git push origin v${{ env.RELEASE_VERSION }}
