@@ -12,8 +12,8 @@ const About = () => {
   }), []);
 
   return (
-    <Stack direction="row">
-      <AboutContainer container spacing={2} paddingLeft="10vw" paddingRight="10vw" {...contentTransitionProps}>
+    <AboutContainer direction="row">
+      <Grid container spacing={2} paddingLeft="10vw" paddingRight="10vw" {...contentTransitionProps}>
         <Grid item xs={4}>
           <Stack minHeight="100vh" justifyContent="center">
             <Typography variant="h1" color={grey[50]} fontWeight="500">
@@ -31,8 +31,8 @@ const About = () => {
             </Typography>
           </Stack>
         </Grid>
-      </AboutContainer>
-    </Stack>
+      </Grid>
+    </AboutContainer>
   );
 };
 

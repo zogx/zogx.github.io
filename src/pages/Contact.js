@@ -2,11 +2,11 @@ import { Grid, Stack, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { Chat } from '@mui/icons-material';
 
-import { MenuMessageText, MessageIcon } from './Contact.style';
+import { GridContainer, MenuMessageText, MessageIcon } from './Contact.style';
 
 const Contact = () => {
   return (
-    <Grid container paddingLeft="5vw" paddingRight="5vw">
+    <GridContainer container paddingLeft="5vw" paddingRight="5vw">
       <Grid item xs={8}>
         <Stack>
           <Typography variant="h1" color={grey[50]} fontWeight="500" marginTop="25vh" marginBottom="25vh">
@@ -63,7 +63,7 @@ const Contact = () => {
           </Stack>
         </Stack>
       </Grid>
-    </Grid>
+    </GridContainer>
   );
 };
 
